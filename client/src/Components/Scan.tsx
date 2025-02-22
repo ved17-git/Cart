@@ -75,7 +75,6 @@ setIsLoading(true);
       };
       
       const response = await axios.request(options);
-      console.log(response.data);
         if (response.data) {
           const Product:Products = {
           name: response.data.product.title || "Unknown Product",
@@ -84,7 +83,6 @@ setIsLoading(true);
           quantity: 1,
           barcode: data.barcode as string
         };
-        console.log(Product);
         setPostProduct(Product)
       }
       setProductData(response.data)
@@ -103,7 +101,6 @@ setIsLoading(true);
 useEffect(()=>{
   const getAllProducts=async()=>{
     const response= await axios.get('http://localhost:3000/api/allProducts')
-    console.log(response.data);
     setShowCart(response.data.data)
   }
   getAllProducts()
@@ -112,21 +109,18 @@ useEffect(()=>{
 
 const handlePost=async()=>{
   const response= await axios.post('http://localhost:3000/api/addProduct', postProduct)
-  console.log(response.data);
   setaddCart(response.data.data)
 }
 
 
 async function plusQuantity (barcode:string){
   const response=await axios.patch(`http://localhost:3000/api/quantityPlus/${barcode}`)
-  console.log(response.data);
   setPlusCart(response.data)
 }
 
 async function minusQuantity(barcode:string){
   try {
   const response=await axios.patch(`http://localhost:3000/api/quantityMinus/${barcode}`)
-  console.log(response.data);
   setMinusCart(response.data)
 
   } 
@@ -140,7 +134,6 @@ async function minusQuantity(barcode:string){
 
 async function removeProductCart(barcode:string){
   const response=await axios.delete(`http://localhost:3000/api/${barcode}`)
-  console.log(response.data);
   setRemoveProduct(response.data)
 }
 

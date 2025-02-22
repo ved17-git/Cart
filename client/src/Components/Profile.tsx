@@ -29,7 +29,6 @@ useEffect(() => {
           const response = await axios.get("http://localhost:3000/api/profile", {
             headers: { Authorization: `Bearer ${token}` },
           });
-          console.log(response.data)
           setUser(response.data.data);
         } catch (error) {
           console.error("Error fetching user data:", error);

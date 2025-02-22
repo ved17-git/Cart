@@ -15,8 +15,7 @@ const navigate=useNavigate()
 
     const data = Object.fromEntries(new FormData(e.currentTarget));    
     try {
-      const response = await axios.post('http://localhost:3000/api/login', data);
-      console.log(response);  
+      const response = await axios.post('http://localhost:3000/api/login', data);  
       const token=response.data.token
       localStorage.setItem('token',token)
       toast.success('Logged In Successfully')
