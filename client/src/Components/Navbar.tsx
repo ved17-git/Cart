@@ -65,9 +65,9 @@ position="bottom-left"
    exit={{opacity:0}}
    transition={{duration:1.3}}>
 
-        <div className="flex justify-between items-center px-[12vh] py-5 md:px-[4vh]">
-           <div>
-            <NavLink to='/' className="text-3xl font-semibold">Scan <span className="text-3xl text-[#B2FD47]"> Cart </span></NavLink>
+        <div className="flex justify-between items-center px-[12vh] py-5 md:px-[4vh] sm:px-[1vh]">
+           <div className="">
+            <NavLink to='/' className="text-3xl font-semibold md:text-[3vh]">Scan <span className="text-3xl text-[#B2FD47]"> Cart </span></NavLink>
            </div>
  
         {
@@ -92,7 +92,7 @@ position="bottom-left"
             </Dropdown>
           
           </div> : 
-     <div className="flex justify-center gap-3">
+     <div className="flex justify-center gap-3 md:gap-1">
      <Button className="" onPress={()=>navigate('/login')} >Login</Button>
     <Button className="bg-[#9FFD19]" onPress={()=>navigate('/signUp')}>Sign Up</Button>
     </div>
