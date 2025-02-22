@@ -26,7 +26,14 @@ router.get('/:barcode',  getProduct)
 
 router.delete('/:barcode', deleteById)
 
-
+//test 
+router.get('/test/json', (req,res)=>{
+    res.json({
+        id:"1",
+        FirstName:"abc",
+        LastName:"pqr"
+    })
+})
 
 
 
