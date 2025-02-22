@@ -7,7 +7,6 @@ import SignUp from "./Components/SignUp"
 import Navbar from "./Components/Navbar"
 import Profile from "./Components/Profile"
 import Scan from "./Components/Scan"
-import UserContext from "./Context/UserContext"
 import PaymentGateway from "./Components/PaymentGateway"
 
 
@@ -17,8 +16,7 @@ function App() {
 
   return (
     <>
-  
-  <UserContext> 
+
     <BrowserRouter>
       <Navbar/>
         <Routes>
@@ -43,7 +41,6 @@ function App() {
         </Routes>
     </BrowserRouter>
     
-    </UserContext>
 
 
 

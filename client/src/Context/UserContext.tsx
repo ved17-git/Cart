@@ -1,17 +1,17 @@
-import userContext from "../context";
-import { useState } from "react";
+// import userContext from "../context";
+// import { useState } from "react";
 
-function UserContext({children}) {
+// function UserContext({children}) {
   
-  const [scannedBarcode, setScannedBarcode]=useState<string | null>('')
+//   const [scannedBarcode, setScannedBarcode]=useState<string | null>('')
 
-  return (
-    <>
-    <userContext.Provider value={{scannedBarcode,setScannedBarcode}}> 
-    {children}
-    </userContext.Provider>
-    </>
-  );
-}
+//   return (
+//     <>
+//     <userContext.Provider value={{scannedBarcode,setScannedBarcode}}> 
+//     {children}
+//     </userContext.Provider>
+//     </>
+//   );
+// }
 
-export default UserContext;
+// export default UserContext;
