@@ -16,6 +16,7 @@ import {Button} from "@heroui/react";
 import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from 'react-hot-toast';
 
+
 interface Products{
   name:string,
   price:number,
@@ -49,6 +50,9 @@ function Scan() {
   const [minusCart,setMinusCart]=useState()
 
   const [removeProduct, setRemoveProduct]=useState()
+  
+
+
 
 
 const navigate=useNavigate()
@@ -65,7 +69,7 @@ setIsLoading(true);
         url: "https://barcodes-lookup.p.rapidapi.com/",
         params: { barcode: data.barcode }, 
         headers: {
-          "x-rapidapi-key": "2f0ce65293msh16d264a262517a1p157d53jsn4fb6ef4954c6",
+          "x-rapidapi-key":"2f0ce65293msh16d264a262517a1p157d53jsn4fb6ef4954c6",
           "x-rapidapi-host": "barcodes-lookup.p.rapidapi.com",
         },
       };
