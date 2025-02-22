@@ -3,6 +3,7 @@ import { getUsers, login, signUp,getUserProfile, logout,deleteUsers } from '../C
 import { authMiddleware,checkAdmin } from '../middleware.js'
 import { createProduct,getProduct, allProducts, deleteAllProducts, deleteById, handlePlusQuantity,handleMinusQuantity } from '../Controller/productController.js'
 
+
 const router=express.Router()
 
 router.post('/signUp', signUp)
@@ -24,6 +25,9 @@ router.get('/:barcode',  getProduct)
 // router.delete('/delete',deleteAllProducts) 
 
 router.delete('/:barcode', deleteById)
+
+
+
 
 
 
