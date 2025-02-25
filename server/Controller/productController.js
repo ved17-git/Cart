@@ -3,6 +3,7 @@ const prisma = new PrismaClient()
 
 export const createProduct = async (req, res) => {
     try {
+      const data=req.jwtPayload
       const { name, price, image, quantity, barcode } = req.body;
   
       const alreadyExists = await prisma.product.findUnique({
@@ -36,9 +37,16 @@ export const createProduct = async (req, res) => {
         data: {
           name: name,
           price: price * quantity,
-          quantity: quantity,
+          quantity: 1,
           barcode: barcode,
           image: image, // Assuming you're passing the image as well
+          
+          user:{
+            connect:{
+              id:data.id
+            }
+          }
+
         },
       });
   

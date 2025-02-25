@@ -15,7 +15,7 @@ const navigate=useNavigate()
 
     const data = Object.fromEntries(new FormData(e.currentTarget));    
     try {
-      const response = await axios.post('https://cart-j807.onrender.com/api/login', data);  
+      const response = await axios.post('http://localhost:3000/api/login', data, );  
       const token=response.data.token
       localStorage.setItem('token',token)
       toast.success('Logged In Successfully')
@@ -25,7 +25,7 @@ const navigate=useNavigate()
     } 
     
     catch (error) {
-      toast.error('Wrong Credentials')
+      toast.error('Wrong Credentials or User does not Exists')
       console.error('Error during signup:', error);
     }
     

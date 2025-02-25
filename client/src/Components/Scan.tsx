@@ -38,6 +38,8 @@ interface ProductApiResponse {
 
 function Scan() {
 
+  const token=localStorage.getItem('token')
+
   const [isLoading, setIsLoading] = useState(false);
   const [productData, setProductData] = useState<ProductApiResponse | null>(null);
   const [openDrawer,setOpenDrawer]=useState(false)
@@ -100,16 +102,28 @@ setIsLoading(true);
 
 useEffect(()=>{
   const getAllProducts=async()=>{
-    const response= await axios.get('http://localhost:3000/api/allProducts')
-    setShowCart(response.data.data)
+    const response= await axios.get('http://localhost:3000/api/profile', {
+      headers:{Authorization:`Bearer ${token}`}
+    })
+    
+    setShowCart(response.data.data.products)
   }
   getAllProducts()
 
-},[addCart, plusCart, minusCart,removeProduct])
+},[addCart, plusCart, minusCart,removeProduct, token])
 
 const handlePost=async()=>{
-  const response= await axios.post('http://localhost:3000/api/addProduct', postProduct)
-  setaddCart(response.data.data)
+  try {
+    const response= await axios.post('http://localhost:3000/api/addProduct', postProduct, {
+      headers: {Authorization:`Bearer ${token}`}
+    })
+    console.log(response.data);
+
+    setaddCart(response.data.data)
+  } catch (error) {
+    console.log(error);
+  }
+
 }
 
 
@@ -120,7 +134,7 @@ async function plusQuantity (barcode:string){
 
 async function minusQuantity(barcode:string){
   try {
-  const response=await axios.patch(`http://localhost:3000/api/quantityMinus/${barcode}`)
+  const response=await axios.patch(`http://localhost:3000/api/quantityMinus/${barcode}`,)
   setMinusCart(response.data)
 
   } 

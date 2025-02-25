@@ -150,6 +150,9 @@ export const getUserProfile=async(req,res)=>{
     const profile=await prisma.user.findUnique({
       where:{
           id:data.id
+      },
+      include:{
+        products:true
       }
     })
     
